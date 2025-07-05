@@ -1,0 +1,57 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <rect width="1920" height="1080" fill="url(#paint0_linear)"/>
+  
+  <!-- Abstract tech pattern -->
+  <path d="M0 540H1920" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  <path d="M960 0V1080" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.05">
+    <path d="M240 0V1080" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M480 0V1080" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M720 0V1080" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M1200 0V1080" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M1440 0V1080" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M1680 0V1080" stroke="#FFFFFF" stroke-width="1"/>
+    
+    <path d="M0 270H1920" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M0 810H1920" stroke="#FFFFFF" stroke-width="1"/>
+  </g>
+  
+  <!-- Circles -->
+  <circle cx="240" cy="270" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="480" cy="270" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="720" cy="270" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="960" cy="270" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="1200" cy="270" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="1440" cy="270" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="1680" cy="270" r="5" fill="#2ECC71" opacity="0.5"/>
+  
+  <circle cx="240" cy="540" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="480" cy="540" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="720" cy="540" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="960" cy="540" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="1200" cy="540" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="1440" cy="540" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="1680" cy="540" r="5" fill="#2ECC71" opacity="0.5"/>
+  
+  <circle cx="240" cy="810" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="480" cy="810" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="720" cy="810" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="960" cy="810" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="1200" cy="810" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="1440" cy="810" r="5" fill="#2ECC71" opacity="0.5"/>
+  <circle cx="1680" cy="810" r="5" fill="#2ECC71" opacity="0.5"/>
+  
+  <!-- Zen circle -->
+  <circle cx="960" cy="540" r="200" stroke="#E63946" stroke-opacity="0.2" stroke-width="20"/>
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A1A1A"/>
+      <stop offset="1" stop-color="#121212"/>
+    </linearGradient>
+  </defs>
+</svg>

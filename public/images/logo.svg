@@ -1,0 +1,18 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- N letter with tech dots -->
+  <path d="M20 10L20 50L30 50L30 25L50 50L60 50L60 10L50 10L50 35L30 10L20 10Z" fill="currentColor"/>
+  
+  <!-- Tech dots -->
+  <circle cx="70" cy="15" r="3" fill="#2ECC71"/>
+  <circle cx="70" cy="25" r="3" fill="#2ECC71"/>
+  <circle cx="70" cy="35" r="3" fill="#2ECC71"/>
+  <circle cx="70" cy="45" r="3" fill="#2ECC71"/>
+  
+  <!-- Zen circle -->
+  <circle cx="90" cy="30" r="15" stroke="#E63946" stroke-width="2" fill="none"/>
+  
+  <!-- Text -->
+  <path d="M110 20H140V25H125L140 40V45H110V40H125L110 25V20Z" fill="currentColor"/>
+  <path d="M145 20H175V25H155V30H170V35H155V40H175V45H145V20Z" fill="currentColor"/>
+  <path d="M180 20H185V40H195V45H180V20Z" fill="currentColor"/>
+</svg>

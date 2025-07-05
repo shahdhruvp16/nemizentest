@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FAFAFA;
+    --foreground: #1A1A1A;
+    --primary: #E63946;
+    --primary-light: #F87171;
+    --primary-dark: #B91C1C;
+    --accent: #2ECC71;
+    --accent-light: #4ADE80;
+    --accent-dark: #15803D;
+    --card: #FFFFFF;
+    --card-foreground: #1A1A1A;
+    --border: #E5E7EB;
+    --input: #E5E7EB;
+    --ring: #E63946;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #121212;
+    --foreground: #FAFAFA;
+    --primary: #E63946;
+    --primary-light: #F87171;
+    --primary-dark: #B91C1C;
+    --accent: #2ECC71;
+    --accent-light: #4ADE80;
+    --accent-dark: #15803D;
+    --card: #1A1A1A;
+    --card-foreground: #FAFAFA;
+    --border: #2D2D2D;
+    --input: #2D2D2D;
+    --ring: #E63946;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-400;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-to-r from-primary to-accent;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .input-focus {
+    @apply focus:ring-2 focus:ring-primary focus:border-transparent;
+  }
+}
+
+.theme-transition {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, fill 0.4s ease, stroke 0.4s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}

@@ -1,0 +1,16 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="url(#paint0_linear)"/>
+  
+  <!-- Abstract person silhouette -->
+  <path d="M100 90C116.569 90 130 76.5685 130 60C130 43.4315 116.569 30 100 30C83.4315 30 70 43.4315 70 60C70 76.5685 83.4315 90 100 90Z" fill="#E6E6E6" fill-opacity="0.5"/>
+  <path d="M50 170V150C50 128.909 66.9086 112 88 112H112C133.091 112 150 128.909 150 150V170C150 191.091 133.091 208 112 208H88C66.9086 208 50 191.091 50 170Z" fill="#E6E6E6" fill-opacity="0.5"/>
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3498DB"/>
+      <stop offset="1" stop-color="#2980B9"/>
+    </linearGradient>
+  </defs>
+</svg>
