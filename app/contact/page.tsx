@@ -38,7 +38,7 @@ export default function Contact() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     setSubmitError('');
-    console.log('Submitted data:', data); // ✅ Marked as used
+    console.log('Submitted data:', data);
 
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
@@ -184,11 +184,13 @@ export default function Contact() {
               className="h-[500px] rounded-xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-800"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!..."
-                width="100%"
-                height="100%"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1845.4049432870997!2d73.20722408858826!3d22.3230286449176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcf6ae9d65a8b%3A0x7c7be8468b7cbf15!2s142%2C%20Anand%20Nagar%20Rd%2C%20Dipika%20Society%2C%20Saikrupa%20society%2C%20Bapunagar%2C%20Vadodara%2C%20Gujarat%20390018!5e0!3m2!1sen!2sin!4v1751896235734!5m2!1sen!2sin"
+                width="600"
+                height="450"
                 style={{ border: 0 }}
+                allowFullScreen
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
                 title="NemiZen Technology Location"
               ></iframe>
             </motion.div>
