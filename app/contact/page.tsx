@@ -1,10 +1,18 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { useForm } from "react-hook-form";
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaCheckCircle } from "react-icons/fa";
-import emailjs from "emailjs-com";
+import { useState, type ReactNode } from 'react';
+import { motion } from 'framer-motion';
+import {
+  useForm,
+  type UseFormRegister,
+  type FieldErrors,
+} from 'react-hook-form';
+import {
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaCheckCircle,
+} from 'react-icons/fa';
 
 // Form data type
 type FormData = {
@@ -25,19 +33,20 @@ export default function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState("");
+  const [submitError, setSubmitError] = useState('');
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    setSubmitError("");
+    setSubmitError('');
+    console.log('Submitted data:', data); // ✅ Marked as used
 
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setIsSubmitted(true);
       reset();
     } catch (error) {
-      setSubmitError("There was an error sending your message. Please try again.");
-      console.error("Error sending email:", error);
+      setSubmitError('There was an error sending your message. Please try again.');
+      console.error('Error sending form:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -54,12 +63,13 @@ export default function Contact() {
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="text-4xl md:text-6xl font-bold font-poppins mb-6 gradient-text">
-              Get in <span className="text-primary-dark dark:text-primary-light font-extrabold relative inline-block">
+              Get in{' '}
+              <span className="text-primary-dark dark:text-primary-light font-extrabold relative inline-block">
                 Touch
                 <motion.span
                   className="absolute -bottom-2 left-0 w-full h-1 bg-accent rounded-full"
-                  initial={{ width: 0, left: "50%" }}
-                  animate={{ width: "100%", left: 0 }}
+                  initial={{ width: 0, left: '50%' }}
+                  animate={{ width: '100%', left: 0 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                 />
               </span>
@@ -82,7 +92,7 @@ export default function Contact() {
             <ContactCard
               icon={<FaPhone className="text-primary text-2xl" />}
               title="Call Us"
-              content={"+91 94080 24882"}
+              content={'+91 94080 24882'}
             />
             <ContactCard
               icon={<FaEnvelope className="text-primary text-2xl" />}
@@ -119,18 +129,49 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                  <InputField label="Your Name *" id="name" register={register} errors={errors} required />
-                  <InputField label="Your Email *" id="email" register={register} errors={errors} required type="email" />
-                  <InputField label="Phone Number" id="phone" register={register} errors={errors} />
-                  <InputField label="Subject *" id="subject" register={register} errors={errors} required />
-                  <InputField label="Your Message *" id="message" register={register} errors={errors} required type="textarea" />
+                  <InputField
+                    label="Your Name *"
+                    id="name"
+                    register={register}
+                    errors={errors}
+                    required
+                  />
+                  <InputField
+                    label="Your Email *"
+                    id="email"
+                    register={register}
+                    errors={errors}
+                    required
+                    type="email"
+                  />
+                  <InputField
+                    label="Phone Number"
+                    id="phone"
+                    register={register}
+                    errors={errors}
+                  />
+                  <InputField
+                    label="Subject *"
+                    id="subject"
+                    register={register}
+                    errors={errors}
+                    required
+                  />
+                  <InputField
+                    label="Your Message *"
+                    id="message"
+                    register={register}
+                    errors={errors}
+                    required
+                    type="textarea"
+                  />
                   {submitError && <p className="text-red-500">{submitError}</p>}
                   <button
                     type="submit"
                     disabled={isSubmitting}
                     className="w-full py-3 px-6 bg-primary text-white rounded-lg font-medium"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               )}
@@ -143,7 +184,7 @@ export default function Contact() {
               className="h-[500px] rounded-xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-800"
             >
               <iframe
-                src="https://www.google.com/maps/embed?..."
+                src="https://www.google.com/maps/embed?pb=!1m18!..."
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -158,7 +199,15 @@ export default function Contact() {
   );
 }
 
-function ContactCard({ icon, title, content }: { icon: JSX.Element; title: string; content: string }) {
+function ContactCard({
+  icon,
+  title,
+  content,
+}: {
+  icon: ReactNode;
+  title: string;
+  content: string;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -175,12 +224,30 @@ function ContactCard({ icon, title, content }: { icon: JSX.Element; title: strin
   );
 }
 
-function InputField({ label, id, register, errors, required, type = "text" }: any) {
-  const isTextarea = type === "textarea";
-  const rules = required ? { required: `${label.replace("*", "").trim()} is required` } : {};
+function InputField({
+  label,
+  id,
+  register,
+  errors,
+  required,
+  type = 'text',
+}: {
+  label: string;
+  id: keyof FormData;
+  register: UseFormRegister<FormData>;
+  errors: FieldErrors<FormData>;
+  required?: boolean;
+  type?: string;
+}) {
+  const isTextarea = type === 'textarea';
+  const rules = required ? { required: `${label.replace('*', '').trim()} is required` } : {};
+
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+      <label
+        htmlFor={id}
+        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+      >
         {label}
       </label>
       {isTextarea ? (
@@ -188,19 +255,23 @@ function InputField({ label, id, register, errors, required, type = "text" }: an
           id={id}
           {...register(id, rules)}
           rows={4}
-          className={`w-full px-4 py-3 border rounded-lg ${errors[id] ? "border-red-500" : "border-gray-300"}`}
-          placeholder={`Enter ${label.replace("*", "").trim().toLowerCase()}`}
+          className={`w-full px-4 py-3 border rounded-lg ${
+            errors[id] ? 'border-red-500' : 'border-gray-300'
+          }`}
+          placeholder={`Enter ${label.replace('*', '').trim().toLowerCase()}`}
         />
       ) : (
         <input
           id={id}
           type={type}
           {...register(id, rules)}
-          className={`w-full px-4 py-3 border rounded-lg ${errors[id] ? "border-red-500" : "border-gray-300"}`}
-          placeholder={`Enter ${label.replace("*", "").trim().toLowerCase()}`}
+          className={`w-full px-4 py-3 border rounded-lg ${
+            errors[id] ? 'border-red-500' : 'border-gray-300'
+          }`}
+          placeholder={`Enter ${label.replace('*', '').trim().toLowerCase()}`}
         />
       )}
-      {errors[id] && <p className="mt-1 text-sm text-red-500">{errors[id].message}</p>}
+      {errors[id] && <p className="mt-1 text-sm text-red-500">{errors[id]?.message as string}</p>}
     </div>
   );
 }

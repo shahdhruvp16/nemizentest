@@ -5,8 +5,23 @@ import Image from 'next/image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
+// Props for TimelineItem
+type TimelineItemProps = {
+  year: string;
+  title: string;
+  description: string;
+  isLeft?: boolean;
+  delay?: number;
+};
+
 // Timeline component
-const TimelineItem = ({ year, title, description, isLeft = true, delay = 0 }) => {
+const TimelineItem = ({
+  year,
+  title,
+  description,
+  isLeft = true,
+  delay = 0,
+}: TimelineItemProps) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
@@ -26,17 +41,23 @@ const TimelineItem = ({ year, title, description, isLeft = true, delay = 0 }) =>
         visible: {
           opacity: 1,
           x: 0,
-          transition: { duration: 0.6, delay: delay * 0.2 }
-        }
+          transition: { duration: 0.6, delay: delay * 0.2 },
+        },
       }}
-      className={`flex ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col items-center gap-4 md:gap-8`}
+      className={`flex ${
+        isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
+      } flex-col items-center gap-4 md:gap-8`}
     >
       <div className="md:w-1/2 flex flex-col items-center md:items-end">
         <div className="bg-primary text-white px-4 py-2 rounded-full font-bold mb-2">
           {year}
         </div>
-        <h3 className="text-xl font-semibold font-poppins mb-2 text-center md:text-right">{title}</h3>
-        <p className="text-gray-600 dark:text-gray-300 text-center md:text-right">{description}</p>
+        <h3 className="text-xl font-semibold font-poppins mb-2 text-center md:text-right">
+          {title}
+        </h3>
+        <p className="text-gray-600 dark:text-gray-300 text-center md:text-right">
+          {description}
+        </p>
       </div>
       <div className="hidden md:flex flex-col items-center">
         <div className="w-4 h-4 rounded-full bg-primary"></div>
@@ -60,7 +81,7 @@ export default function About() {
     if (headerInView) headerControls.start('visible');
     if (visionInView) visionControls.start('visible');
     if (founderInView) founderControls.start('visible');
-  }, [headerControls, visionControls, founderControls, headerInView, visionInView, founderInView]);
+  }, [headerInView, visionInView, founderInView, headerControls, visionControls, founderControls]);
 
   return (
     <div className="pt-24 pb-16">
@@ -73,14 +94,14 @@ export default function About() {
             animate={headerControls}
             variants={{
               hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { duration: 0.5, staggerChildren: 0.1 } }
+              visible: { opacity: 1, transition: { duration: 0.5, staggerChildren: 0.1 } },
             }}
             className="text-center max-w-4xl mx-auto"
           >
             <motion.h1
               variants={{
                 hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 }
+                visible: { opacity: 1, y: 0 },
               }}
               className="text-4xl md:text-5xl font-bold font-poppins mb-6"
             >
@@ -89,7 +110,7 @@ export default function About() {
             <motion.p
               variants={{
                 hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 }
+                visible: { opacity: 1, y: 0 },
               }}
               className="text-xl text-gray-600 dark:text-gray-300 mb-8"
             >
@@ -108,7 +129,7 @@ export default function About() {
             animate={visionControls}
             variants={{
               hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { duration: 0.5, staggerChildren: 0.1 } }
+              visible: { opacity: 1, transition: { duration: 0.5, staggerChildren: 0.1 } },
             }}
             className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
           >
@@ -116,7 +137,7 @@ export default function About() {
               <motion.h2
                 variants={{
                   hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 }
+                  visible: { opacity: 1, y: 0 },
                 }}
                 className="text-3xl font-bold font-poppins mb-4"
               >
@@ -125,7 +146,7 @@ export default function About() {
               <motion.p
                 variants={{
                   hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 }
+                  visible: { opacity: 1, y: 0 },
                 }}
                 className="text-gray-600 dark:text-gray-300 mb-8"
               >
@@ -135,7 +156,7 @@ export default function About() {
               <motion.h2
                 variants={{
                   hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { delay: 0.2 } }
+                  visible: { opacity: 1, y: 0, transition: { delay: 0.2 } },
                 }}
                 className="text-3xl font-bold font-poppins mb-4"
               >
@@ -144,7 +165,7 @@ export default function About() {
               <motion.p
                 variants={{
                   hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { delay: 0.2 } }
+                  visible: { opacity: 1, y: 0, transition: { delay: 0.2 } },
                 }}
                 className="text-gray-600 dark:text-gray-300"
               >
@@ -155,7 +176,7 @@ export default function About() {
             <motion.div
               variants={{
                 hidden: { opacity: 0, scale: 0.8 },
-                visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
+                visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
               }}
               className="relative h-[400px] rounded-xl overflow-hidden shadow-xl"
             >
@@ -236,14 +257,14 @@ export default function About() {
             animate={founderControls}
             variants={{
               hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { duration: 0.5 } }
+              visible: { opacity: 1, transition: { duration: 0.5 } },
             }}
             className="max-w-4xl mx-auto"
           >
             <motion.div
               variants={{
                 hidden: { opacity: 0, rotateY: 90 },
-                visible: { opacity: 1, rotateY: 0, transition: { duration: 0.8 } }
+                visible: { opacity: 1, rotateY: 0, transition: { duration: 0.8 } },
               }}
               className="bg-white dark:bg-dark rounded-xl p-8 shadow-xl border border-gray-100 dark:border-gray-800"
             >
@@ -275,7 +296,7 @@ export default function About() {
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.5 } }
+                visible: { opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.5 } },
               }}
               className="text-center mt-12 p-6 bg-gray-50 dark:bg-dark-deeper rounded-xl"
             >

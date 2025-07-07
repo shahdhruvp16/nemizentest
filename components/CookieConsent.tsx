@@ -43,7 +43,7 @@ export default function CookieConsent() {
           <div className="bg-white dark:bg-dark shadow-lg rounded-lg p-6 border border-gray-200 dark:border-gray-700">
             <h3 className="text-lg font-semibold mb-2 font-poppins">Cookie Consent</h3>
             <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-              We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
+              We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking &quot;Accept All&quot;, you consent to our use of cookies.
             </p>
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
               <button

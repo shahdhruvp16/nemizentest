@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaCheck, FaTimes, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FaCheck } from 'react-icons/fa';
 
 const packages = [
   {
@@ -14,7 +13,7 @@ const packages = [
       '1-Page Website',
       'Logo + Basic SEO',
       'Social Media Profile Setup',
-      'Business Email Setup'
+      'Business Email Setup',
     ],
     recommended: false,
   },
@@ -27,7 +26,7 @@ const packages = [
       'E-commerce Website',
       'Payment Gateway Integration',
       '5 Social Media Creatives',
-      'SEO Basics'
+      'SEO Basics',
     ],
     recommended: true,
   },
@@ -40,7 +39,7 @@ const packages = [
       'Instagram + Facebook Management',
       '12 Posts + 4 Reels',
       'Monthly Analytics Report',
-      'SEO + Blog Writing'
+      'SEO + Blog Writing',
     ],
     recommended: false,
   },
@@ -53,22 +52,26 @@ const packages = [
       'Business Website + ERP Integration',
       'Accounting Dashboard',
       'Branding Kit',
-      'Legal Document Support'
+      'Legal Document Support',
     ],
     recommended: false,
-  }
+  },
 ];
 
-const PackageCard = ({ pkg }) => (
+const PackageCard = ({ pkg }: { pkg: (typeof packages)[0] }) => (
   <motion.div
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.4 }}
-    className={`bg-white dark:bg-dark p-6 rounded-xl shadow-lg border ${pkg.recommended ? 'border-primary' : 'border-gray-300 dark:border-gray-700'} relative`}
+    className={`bg-white dark:bg-dark p-6 rounded-xl shadow-lg border ${
+      pkg.recommended ? 'border-primary' : 'border-gray-300 dark:border-gray-700'
+    } relative`}
   >
     {pkg.recommended && (
       <div className="absolute top-0 right-0">
-        <div className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">RECOMMENDED</div>
+        <div className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+          RECOMMENDED
+        </div>
       </div>
     )}
     <h3 className="text-2xl font-bold font-poppins mb-2">{pkg.name}</h3>

@@ -61,7 +61,14 @@ const ValueIcon = ({
 };
 
 // Service Card Component
-const ServiceCard = ({ title, description, icon: Icon, delay = 0 }) => {
+type ServiceCardProps = {
+  title: string;
+  description: string;
+  icon: React.ElementType;
+  delay?: number;
+};
+
+const ServiceCard = ({ title, description, icon: Icon, delay = 0 }: ServiceCardProps) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -103,7 +110,15 @@ const ServiceCard = ({ title, description, icon: Icon, delay = 0 }) => {
 };
 
 // Testimonial Card Component
-const TestimonialCard = ({ name, role, testimonial, image, delay = 0 }) => {
+type TestimonialCardProps = {
+  name: string;
+  role: string;
+  testimonial: string;
+  image: string;
+  delay?: number;
+};
+
+const TestimonialCard = ({ name, role, testimonial, image, delay = 0 }: TestimonialCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: 50 }}
@@ -121,7 +136,7 @@ const TestimonialCard = ({ name, role, testimonial, image, delay = 0 }) => {
         </div>
       </div>
       <p className="mt-4 text-gray-700 dark:text-gray-300 italic">
-        "{testimonial}"
+        &quot;{testimonial}&quot;
       </p>
     </motion.div>
   );
@@ -553,7 +568,7 @@ export default function Home() {
               What Our Clients Say
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              Don't just take our word for it. Here's what our clients have to
+              Don&#39;t just take our word for it. Here&#39;s what our clients have to
               say about working with us.
             </p>
           </div>
@@ -609,7 +624,7 @@ export default function Home() {
             Ready to Transform Your Digital Presence?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Let's work together to create innovative solutions that drive your
+            Let&#39;s work together to create innovative solutions that drive your
             business forward.
           </p>
           <Link
