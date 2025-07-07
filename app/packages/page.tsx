@@ -33,7 +33,7 @@ const packages = [
   {
     id: 'digital-growth',
     name: 'Digital Growth Pack',
-    price: 11999,
+    price: 12999,
     billing: 'monthly',
     features: [
       'Instagram + Facebook Management',

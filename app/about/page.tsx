@@ -1,24 +1,40 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import Image from 'next/image';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { useEffect } from "react";
+import Image from "next/image";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function About() {
   const headerControls = useAnimation();
   const visionControls = useAnimation();
   const founderControls = useAnimation();
 
-  const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [visionRef, visionInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [founderRef, founderInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [headerRef, headerInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  const [visionRef, visionInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  const [founderRef, founderInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   useEffect(() => {
-    if (headerInView) headerControls.start('visible');
-    if (visionInView) visionControls.start('visible');
-    if (founderInView) founderControls.start('visible');
-  }, [headerInView, visionInView, founderInView, headerControls, visionControls, founderControls]);
+    if (headerInView) headerControls.start("visible");
+    if (visionInView) visionControls.start("visible");
+    if (founderInView) founderControls.start("visible");
+  }, [
+    headerInView,
+    visionInView,
+    founderInView,
+    headerControls,
+    visionControls,
+    founderControls,
+  ]);
 
   return (
     <div className="pt-24 pb-16">
@@ -31,7 +47,10 @@ export default function About() {
             animate={headerControls}
             variants={{
               hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { duration: 0.5, staggerChildren: 0.1 } },
+              visible: {
+                opacity: 1,
+                transition: { duration: 0.5, staggerChildren: 0.1 },
+              },
             }}
             className="text-center max-w-4xl mx-auto"
           >
@@ -66,7 +85,10 @@ export default function About() {
             animate={visionControls}
             variants={{
               hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { duration: 0.5, staggerChildren: 0.1 } },
+              visible: {
+                opacity: 1,
+                transition: { duration: 0.5, staggerChildren: 0.1 },
+              },
             }}
             className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
           >
@@ -87,7 +109,9 @@ export default function About() {
                 }}
                 className="text-gray-600 dark:text-gray-300 mb-8"
               >
-                To create a world where technology brings peace and harmony to businesses and individuals, enabling them to achieve their full potential through ethical and innovative digital solutions.
+                To create a world where technology brings peace and harmony to
+                businesses and individuals, enabling them to achieve their full
+                potential through ethical and innovative digital solutions.
               </motion.p>
 
               <motion.h2
@@ -106,14 +130,21 @@ export default function About() {
                 }}
                 className="text-gray-600 dark:text-gray-300"
               >
-                We are committed to delivering exceptional digital services that combine technical excellence with ethical principles, creating solutions that empower our clients to succeed in an ever-evolving digital landscape.
+                We are committed to delivering exceptional digital services that
+                combine technical excellence with ethical principles, creating
+                solutions that empower our clients to succeed in an
+                ever-evolving digital landscape.
               </motion.p>
             </div>
 
             <motion.div
               variants={{
                 hidden: { opacity: 0, scale: 0.8 },
-                visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+                visible: {
+                  opacity: 1,
+                  scale: 1,
+                  transition: { duration: 0.5 },
+                },
               }}
               className="relative h-[400px] rounded-xl overflow-hidden shadow-xl"
             >
@@ -144,32 +175,50 @@ export default function About() {
             <motion.div
               variants={{
                 hidden: { opacity: 0, rotateY: 90 },
-                visible: { opacity: 1, rotateY: 0, transition: { duration: 0.8 } },
+                visible: {
+                  opacity: 1,
+                  rotateY: 0,
+                  transition: { duration: 0.8 },
+                },
               }}
               className="bg-white dark:bg-dark rounded-xl p-8 shadow-xl border border-gray-100 dark:border-gray-800"
             >
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="relative w-32 h-32 md:w-44 md:h-44 lg:w-56 lg:h-56 rounded-full overflow-hidden shadow-lg border-4 border-white dark:border-dark">
-  <Image
-    src="/images/founder.jpg"
-    alt="Founder"
-    width={284} // Matches lg:w-56 = 14rem = 224px
-    height={284}
-    className="object-cover rounded-full"
-  />
-</div>
+                  <Image
+                    src="/images/founder.jpg"
+                    alt="Founder"
+                    width={284} // Matches lg:w-56 = 14rem = 224px
+                    height={284}
+                    className="object-cover rounded-full"
+                  />
+                </div>
                 <div>
-                  <h3 className="text-2xl font-bold font-poppins mb-2">Founder&apos;s Note</h3>
+                  <h3 className="text-2xl font-bold font-poppins mb-2">
+                    Founder&apos;s Note
+                  </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    &quot;At NemiZen Technology, we are guided by the principles of Jain Tirthankara Neminath, who embodied compassion, non-violence, and ethical conduct. These values are at the core of everything we do, from how we treat our team members to how we approach client projects.
+                    &quot;At NemiZen Technology, we are guided by the principles
+                    of Jain Tirthankara Neminath, who embodied compassion,
+                    non-violence, and ethical conduct. These values are at the
+                    core of everything we do, from how we treat our team members
+                    to how we approach client projects.
                   </p>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    We believe that technology should be a force for good, bringing peace and harmony rather than chaos and disruption. This philosophy influences our approach to innovation, ensuring that we create solutions that are not only technically excellent but also ethically sound and beneficial to society.
+                    We believe that technology should be a force for good,
+                    bringing peace and harmony rather than chaos and disruption.
+                    This philosophy influences our approach to innovation,
+                    ensuring that we create solutions that are not only
+                    technically excellent but also ethically sound and
+                    beneficial to society.
                   </p>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Thank you for being part of our journey as we continue to build technology with purpose, peace, and power.&quot;
+                    Thank you for being part of our journey as we continue to
+                    build technology with purpose, peace, and power.&quot;
                   </p>
-                  <p className="mt-4 font-semibold">- Founder, NemiZen Technology</p>
+                  <p className="mt-4 font-semibold">
+                    - Founder, NemiZen Technology
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -177,7 +226,11 @@ export default function About() {
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.5 } },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { delay: 0.5, duration: 0.5 },
+                },
               }}
               className="text-center mt-12 p-6 bg-gray-50 dark:bg-dark-deeper rounded-xl"
             >
@@ -185,7 +238,10 @@ export default function About() {
                 Built with values of Jain Tirthankara Neminath
               </h3>
               <p className="text-gray-600 dark:text-gray-300">
-                Our company is inspired by the teachings of Neminath, the 22nd Tirthankara of Jainism, who exemplified compassion, non-violence, and ethical conduct. These principles guide our business practices and our approach to technology.
+                Our company is inspired by the teachings of Neminath, the 22nd
+                Tirthankara of Jainism, who exemplified compassion,
+                non-violence, and ethical conduct. These principles guide our
+                business practices and our approach to technology.
               </p>
             </motion.div>
           </motion.div>
