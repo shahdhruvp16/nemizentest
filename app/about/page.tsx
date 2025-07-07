@@ -149,14 +149,15 @@ export default function About() {
               className="bg-white dark:bg-dark rounded-xl p-8 shadow-xl border border-gray-100 dark:border-gray-800"
             >
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
-                <div className="relative w-32 h-32 rounded-full overflow-hidden">
-                  <Image
-                    src="/images/founder.jpg"
-                    alt="Founder"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+                <div className="relative w-32 h-32 md:w-44 md:h-44 lg:w-56 lg:h-56 rounded-full overflow-hidden shadow-lg border-4 border-white dark:border-dark">
+  <Image
+    src="/images/founder.jpg"
+    alt="Founder"
+    width={284} // Matches lg:w-56 = 14rem = 224px
+    height={284}
+    className="object-cover rounded-full"
+  />
+</div>
                 <div>
                   <h3 className="text-2xl font-bold font-poppins mb-2">Founder&apos;s Note</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
