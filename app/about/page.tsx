@@ -48,17 +48,14 @@ const TimelineItem = ({ year, title, description, isLeft = true, delay = 0 }) =>
 };
 
 export default function About() {
-  // Animation controls for sections
   const headerControls = useAnimation();
   const visionControls = useAnimation();
   const founderControls = useAnimation();
 
-  // Refs for intersection observer
   const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [visionRef, visionInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [founderRef, founderInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  // Trigger animations when sections come into view
   useEffect(() => {
     if (headerInView) headerControls.start('visible');
     if (visionInView) visionControls.start('visible');
@@ -260,15 +257,15 @@ export default function About() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold font-poppins mb-2">Founder's Note</h3>
+                  <h3 className="text-2xl font-bold font-poppins mb-2">Founder&apos;s Note</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    "At NemiZen Technology, we are guided by the principles of Jain Tirthankara Neminath, who embodied compassion, non-violence, and ethical conduct. These values are at the core of everything we do, from how we treat our team members to how we approach client projects.
+                    &quot;At NemiZen Technology, we are guided by the principles of Jain Tirthankara Neminath, who embodied compassion, non-violence, and ethical conduct. These values are at the core of everything we do, from how we treat our team members to how we approach client projects.
                   </p>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
                     We believe that technology should be a force for good, bringing peace and harmony rather than chaos and disruption. This philosophy influences our approach to innovation, ensuring that we create solutions that are not only technically excellent but also ethically sound and beneficial to society.
                   </p>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Thank you for being part of our journey as we continue to build technology with purpose, peace, and power."
+                    Thank you for being part of our journey as we continue to build technology with purpose, peace, and power.&quot;
                   </p>
                   <p className="mt-4 font-semibold">- Founder, NemiZen Technology</p>
                 </div>
@@ -282,7 +279,9 @@ export default function About() {
               }}
               className="text-center mt-12 p-6 bg-gray-50 dark:bg-dark-deeper rounded-xl"
             >
-              <h3 className="text-xl font-semibold font-poppins mb-4">Built with values of Jain Tirthankara Neminath</h3>
+              <h3 className="text-xl font-semibold font-poppins mb-4">
+                Built with values of Jain Tirthankara Neminath
+              </h3>
               <p className="text-gray-600 dark:text-gray-300">
                 Our company is inspired by the teachings of Neminath, the 22nd Tirthankara of Jainism, who exemplified compassion, non-violence, and ethical conduct. These principles guide our business practices and our approach to technology.
               </p>
