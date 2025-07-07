@@ -11,6 +11,7 @@ import {
   FaLightbulb,
   FaRegClock,
   FaRegSmile,
+  FaCloud,
 } from "react-icons/fa";
 import ParticleBackground from "../components/ui/ParticleBackground";
 import Logo from "../components/ui/Logo";
@@ -450,11 +451,11 @@ export default function Home() {
               delay={2}
             />
             <ServiceCard
-              title="Accounting Services"
-              description="Professional accounting solutions to keep your finances organized and compliant."
-              icon={FaRegClock}
-              delay={3}
-            />
+  title="Cloud Solutions"
+  description="Secure and scalable cloud infrastructure to ensure smooth operations and data accessibility from anywhere."
+  icon={FaCloud}
+  delay={3}
+/>
             <ServiceCard
               title="Branding & Design"
               description="Creative design services to establish a strong brand identity that resonates with your audience."
