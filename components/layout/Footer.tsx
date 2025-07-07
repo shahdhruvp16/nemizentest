@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiInstagram, FiMail, FiLinkedin,FiGithub } from 'react-icons/fi';
+import { FiInstagram, FiGlobe, FiLinkedin, FiGithub } from 'react-icons/fi';
 import Logo from '../ui/Logo';
 
 export default function Footer() {
@@ -52,7 +52,7 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: FiInstagram, href: 'https://www.instagram.com/shahdhruvp/', label: 'Instagram' },
-    { icon: FiMail, href: 'https://dhruv-portfolio-ai-ml.vercel.app/', label: 'Email' },
+    { icon: FiGlobe, href: 'https://dhruv-portfolio-ai-ml.vercel.app/', label: 'Portfolio' },
     { icon: FiLinkedin, href: 'https://www.linkedin.com/in/dhruv-shah-27111b28a/', label: 'LinkedIn' },
     { icon: FiGithub, href: 'https://github.com/shahdhruvp16', label: 'Github' },
   ];
