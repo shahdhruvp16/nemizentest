@@ -69,7 +69,12 @@ type ServiceCardProps = {
   delay?: number;
 };
 
-const ServiceCard = ({ title, description, icon: Icon, delay = 0 }: ServiceCardProps) => {
+const ServiceCard = ({
+  title,
+  description,
+  icon: Icon,
+  delay = 0,
+}: ServiceCardProps) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -119,7 +124,13 @@ type TestimonialCardProps = {
   delay?: number;
 };
 
-const TestimonialCard = ({ name, role, testimonial, image, delay = 0 }: TestimonialCardProps) => {
+const TestimonialCard = ({
+  name,
+  role,
+  testimonial,
+  image,
+  delay = 0,
+}: TestimonialCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: 50 }}
@@ -451,11 +462,11 @@ export default function Home() {
               delay={2}
             />
             <ServiceCard
-  title="Cloud Solutions"
-  description="Secure and scalable cloud infrastructure to ensure smooth operations and data accessibility from anywhere."
-  icon={FaCloud}
-  delay={3}
-/>
+              title="Cloud Solutions"
+              description="Secure and scalable cloud infrastructure to ensure smooth operations and data accessibility from anywhere."
+              icon={FaCloud}
+              delay={3}
+            />
             <ServiceCard
               title="Branding & Design"
               description="Creative design services to establish a strong brand identity that resonates with your audience."
@@ -569,32 +580,18 @@ export default function Home() {
               What Our Clients Say
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              Don&#39;t just take our word for it. Here&#39;s what our clients have to
-              say about working with us.
+              Don&#39;t just take our word for it. Here&#39;s what our clients
+              have to say about working with us.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <TestimonialCard
-              name="Sarah Johnson"
-              role="CEO, TechStart"
+              name="Varsha Shah"
+              role="Viva Beauty Parlor"
               testimonial="NemiZen transformed our online presence. Their team was professional, responsive, and delivered beyond our expectations."
               image="/images/avatar.svg"
               delay={0}
-            />
-            <TestimonialCard
-              name="Michael Chen"
-              role="Marketing Director, GrowthHub"
-              testimonial="The digital marketing strategy developed by NemiZen helped us increase our leads by 150% in just three months."
-              image="/images/avatar.svg"
-              delay={1}
-            />
-            <TestimonialCard
-              name="Priya Sharma"
-              role="Founder, EcoSolutions"
-              testimonial="Working with NemiZen was a game-changer for our startup. Their AI integration solutions streamlined our operations significantly."
-              image="/images/avatar.svg"
-              delay={2}
             />
           </div>
         </div>
@@ -625,8 +622,8 @@ export default function Home() {
             Ready to Transform Your Digital Presence?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Let&#39;s work together to create innovative solutions that drive your
-            business forward.
+            Let&#39;s work together to create innovative solutions that drive
+            your business forward.
           </p>
           <Link
             href="/contact"
