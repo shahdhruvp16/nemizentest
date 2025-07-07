@@ -5,69 +5,6 @@ import Image from 'next/image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-// Props for TimelineItem
-type TimelineItemProps = {
-  year: string;
-  title: string;
-  description: string;
-  isLeft?: boolean;
-  delay?: number;
-};
-
-// Timeline component
-const TimelineItem = ({
-  year,
-  title,
-  description,
-  isLeft = true,
-  delay = 0,
-}: TimelineItemProps) => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
-
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={controls}
-      variants={{
-        hidden: { opacity: 0, x: isLeft ? -50 : 50 },
-        visible: {
-          opacity: 1,
-          x: 0,
-          transition: { duration: 0.6, delay: delay * 0.2 },
-        },
-      }}
-      className={`flex ${
-        isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
-      } flex-col items-center gap-4 md:gap-8`}
-    >
-      <div className="md:w-1/2 flex flex-col items-center md:items-end">
-        <div className="bg-primary text-white px-4 py-2 rounded-full font-bold mb-2">
-          {year}
-        </div>
-        <h3 className="text-xl font-semibold font-poppins mb-2 text-center md:text-right">
-          {title}
-        </h3>
-        <p className="text-gray-600 dark:text-gray-300 text-center md:text-right">
-          {description}
-        </p>
-      </div>
-      <div className="hidden md:flex flex-col items-center">
-        <div className="w-4 h-4 rounded-full bg-primary"></div>
-        <div className="w-1 h-24 bg-primary"></div>
-      </div>
-      <div className="md:w-1/2"></div>
-    </motion.div>
-  );
-};
-
 export default function About() {
   const headerControls = useAnimation();
   const visionControls = useAnimation();
@@ -188,63 +125,6 @@ export default function About() {
               />
             </motion.div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Timeline Section */}
-      <section className="py-16 bg-gray-50 dark:bg-dark-deeper">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold font-poppins mb-4">Our Journey</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              The milestones that have shaped our path to success.
-            </p>
-          </div>
-
-          <div className="space-y-12 max-w-4xl mx-auto">
-            <TimelineItem
-              year="2018"
-              title="The Beginning"
-              description="NemiZen Technology was founded with a vision to create technology solutions that bring peace and harmony to businesses."
-              isLeft={true}
-              delay={0}
-            />
-            <TimelineItem
-              year="2019"
-              title="First Major Client"
-              description="Secured our first major client and delivered a comprehensive digital transformation project that set the foundation for our approach."
-              isLeft={false}
-              delay={1}
-            />
-            <TimelineItem
-              year="2020"
-              title="Expanding Services"
-              description="Expanded our service offerings to include digital marketing, social media management, and branding solutions."
-              isLeft={true}
-              delay={2}
-            />
-            <TimelineItem
-              year="2021"
-              title="AI Integration"
-              description="Began incorporating AI and machine learning technologies into our solutions, setting us apart in the market."
-              isLeft={false}
-              delay={3}
-            />
-            <TimelineItem
-              year="2022"
-              title="Global Reach"
-              description="Expanded our client base internationally, serving businesses across multiple continents."
-              isLeft={true}
-              delay={4}
-            />
-            <TimelineItem
-              year="2023"
-              title="Today"
-              description="Continuing to innovate and grow, with a focus on creating technology solutions that make a positive impact on the world."
-              isLeft={false}
-              delay={5}
-            />
-          </div>
         </div>
       </section>
 
